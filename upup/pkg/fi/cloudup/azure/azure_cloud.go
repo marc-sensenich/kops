@@ -28,6 +28,12 @@ func NewAzureCloud() (AzureCloud, error) {
 func (c *azureCloudImplementation) ProviderID() kops.CloudProviderID {
 	return kops.CloudProviderAzure
 }
+
+func (c *azureCloudImplementation) FindVPCInfo(id string) (*fi.VPCInfo, error) {
+	glog.Warningf("FindVPCInfo not (yet) implemented on Azure")
+	return nil, nil
+}
+
 // fi.Cloud
 // type Cloud interface {
 // 	ProviderID() kops.CloudProviderID
