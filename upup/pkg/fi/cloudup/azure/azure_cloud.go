@@ -8,6 +8,8 @@ import (
 // AzureCloud type for Azure
 type AzureCloud interface {
 	fi.Cloud
+
+	Region() string
 }
 
 type azureCloudImplementation struct {
@@ -23,6 +25,9 @@ func NewAzureCloud() (AzureCloud, error) {
 
 }
 
+func (c *azureCloudImplementation) ProviderID() kops.CloudProviderID {
+	return kops.CloudProviderAzure
+}
 // fi.Cloud
 // type Cloud interface {
 // 	ProviderID() kops.CloudProviderID
